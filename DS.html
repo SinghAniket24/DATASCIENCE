@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data Scientist Project</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #28a745;
+            --bg-color: #f7f7f7;
+            --text-color: #333;
+            --hover-color: #e9f7fd;
+            --box-shadow-color: rgba(0, 0, 0, 0.2);
+            --footer-bg-color: #343a40;
+            --footer-text-color: #f8f9fa;
+            --highlight-color: #ffb900;
+            --icon-color: var(--text-color);
+        }
+
+        .dark-theme {
+            --primary-color: #4CAF50;   /* Updated Primary Color */
+            --secondary-color: #FFC107;  /* Updated Secondary Color */
+            --bg-color: #121212;         /* Darker Background */
+            --text-color: #E0E0E0;       /* Lighter Text */
+            --hover-color: #333333;      /* Slightly lighter hover effect */
+            --box-shadow-color: rgba(255, 255, 255, 0.1); /* Softer Shadow */
+            --footer-bg-color: #1f3a46;  /* Dark footer background */
+            --footer-text-color: #b2dfdb; /* Light footer text color */
+            --highlight-color: #FFEB3B;  /* Brighter Highlight */
+            --icon-color: var(--highlight-color); /* Highlight for icons */
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: all 0.3s ease-in-out;
+        }
+
+        header {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            box-shadow: 0px 4px 15px var(--box-shadow-color);
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.3em;
+            margin-top: 10px;
+        }
+
+        section {
+            padding: 50px 20px;
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin-top: 10px;
+        }
+
+        .section-content {
+            font-size: 1.3em;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: var(--hover-color);
+            box-shadow: 0px 4px 12px var(--box-shadow-color);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .section-content:hover {
+            transform: scale(1.02);
+            background: linear-gradient(90deg, var(--secondary-color), var(--highlight-color));
+            color: rgb(37, 4, 4);
+        }
+
+        .skills ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .skills ul li {
+            margin: 15px 0;
+            padding: 15px;
+            font-size: 1.3em;
+            border-radius: 10px;
+            background-color: var(--hover-color);
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0px 4px 10px var(--box-shadow-color);
+            transition: all 0.3s ease;
+        }
+
+        .skills ul li i {
+            color: var(--icon-color);
+            font-size: 1.8em;
+        }
+
+        .skills ul li:hover {
+            background-color: var(--secondary-color);
+            color: black;  /* Updated text color on hover */
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: var(--footer-bg-color);
+            color: var(--footer-text-color);
+            text-align: center;
+            padding: 20px;
+            font-size: 1em;
+        }
+
+        footer a {
+            color: var(--highlight-color);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .theme-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 18px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            color: white;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0px 4px 8px var(--box-shadow-color);
+            z-index: 1000;
+        }
+
+        .theme-switcher:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .section-content {
+                font-size: 1.1em;
+            }
+
+            .skills ul li {
+                font-size: 1.1em;
+            }
+
+            .theme-switcher {
+                padding: 8px 12px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+
+<button class="theme-switcher" onclick="toggleTheme()">
+    <i class="fas fa-adjust"></i> Toggle Theme
+</button>
+
+<header>
+    <h1>Data Scientist: Role, Skills, and Insights</h1>
+    <p>Explore the essential skills, tools, and responsibilities of data scientists.</p>
+</header>
+
+<section>
+    <div class="section-title">What is Data Science?</div>
+    <div class="section-content">
+        Data Science is an interdisciplinary field that combines computer science, statistics, and domain expertise to extract valuable insights from data. Data scientists leverage advanced tools and techniques such as machine learning, data wrangling, and visualization to analyze complex datasets and provide actionable insights in industries like healthcare, finance, and e-commerce.
+    </div>
+</section>
+
+<section>
+    <div class="section-title">Key Responsibilities</div>
+    <div class="section-content">
+        Data Scientists have several core responsibilities, including:
+        <ul>
+            <li><i class="fas fa-cogs"></i> Designing data-driven strategies and experiments.</li>
+            <li><i class="fas fa-chart-line"></i> Building predictive models using machine learning algorithms.</li>
+            <li><i class="fas fa-tools"></i> Cleaning, wrangling, and preprocessing raw data.</li>
+            <li><i class="fas fa-database"></i> Managing large datasets and performing complex queries.</li>
+            <li><i class="fas fa-bullseye"></i> Presenting findings and insights to stakeholders through reports and dashboards.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="skills">
+    <div class="section-title">Essential Skills</div>
+    <ul>
+        <li><i class="fas fa-code"></i> Expertise in Python, R, and SQL for data manipulation.</li>
+        <li><i class="fas fa-chart-pie"></i> Proficiency in data visualization tools like Tableau, Power BI, and Matplotlib.</li>
+        <li><i class="fas fa-brain"></i> In-depth knowledge of machine learning algorithms (e.g., regression, classification).</li>
+        <li><i class="fas fa-database"></i> Strong understanding of database management and ETL processes.</li>
+        <li><i class="fas fa-search"></i> Analytical mindset and strong statistical knowledge to interpret results accurately.</li>
+    </ul>
+</section>
+
+<footer>
+    <p><i class="fas fa-database"></i> © 2024 Data Science World</p>
+    <a href="https://towardsdatascience.com/" target="_blank">Towards Data Science</a>
+    <a href="https://www.kaggle.com/" target="_blank">Kaggle</a>
+    <a href="https://www.datacamp.com/community/blog" target="_blank">DataCamp Blog</a>
+    <a href="https://www.analyticsvidhya.com/blog/" target="_blank">Analytics Vidhya</a>
+</footer>
+
+
+<script>
+    function toggleTheme() {
+        const body = document.body;
+        body.classList.toggle("dark-theme");
+        body.classList.toggle("light-theme");
+    }
+</script>
+</body>
+</html>
